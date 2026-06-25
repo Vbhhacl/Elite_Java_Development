@@ -10,6 +10,8 @@ class Data {
 		flag = !flag;
 		notify();
 	}
+	
+	
 	public synchronized void get() { 
 		if (!flag)
 			try { wait(); } catch (InterruptedException e) {}

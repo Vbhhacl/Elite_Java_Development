@@ -8,6 +8,7 @@ class GoRunnable implements Runnable{
 	}
 	public void run() {
 		long sum = 0;
+		
 		for (long i= 1 ; i<countUntil; i++) {
 			sum += i;
 		}
@@ -21,8 +22,9 @@ public class ExecuteDemo {
 	public static void main(String[] args) {
 		//creating a pool of 10 threads 
 		ExecutorService executor = Executors.newFixedThreadPool(NTHREADS);
+		long start = System.currentTimeMillis();
 		for (int i = 0 ; i<500 ; i++) { //500 threads to be executed
-			Runnable worker = new GoRunnable(1000000L+ i);			
+			Runnable worker = new GoRunnable(100000000L+ i);			
 			executor.execute(worker); //assigning task to pooled thread
 		}
 		//this will make the executor accept no new thread
@@ -32,7 +34,8 @@ public class ExecuteDemo {
 		//executor.awaitTermination();
 		while (!executor.isTerminated()) {			
 		}
-		System.out.println("Finished all threads!!");
+		long end = System.currentTimeMillis();
+		System.out.println("Finished all threads in "+ (end-start));
 	}
 
 }

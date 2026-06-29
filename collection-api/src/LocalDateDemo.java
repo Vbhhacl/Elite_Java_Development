@@ -21,7 +21,7 @@ public class LocalDateDemo {
 		System.out.println(d1.isLeapYear());
 		
 		LocalDate dob = LocalDate.of(2005,9,21);
-		System.out.println(d2);
+		System.out.println(dob);
 
 		//calculate age based on dob
 		//System.out.println(Period.between(dob, LocalDate.now()).getYears());

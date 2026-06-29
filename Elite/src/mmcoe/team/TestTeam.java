@@ -104,7 +104,6 @@ public class TestTeam {
 
                     Billing b = new Billing(team);
 
-                    System.out.println("--------------------------------");
                     System.out.println("Team : " + team.getTeamName());
                     System.out.println("Players : " + team.getTotalPlayers());
                     System.out.println("Bill : ₹" + b.calculateBill());

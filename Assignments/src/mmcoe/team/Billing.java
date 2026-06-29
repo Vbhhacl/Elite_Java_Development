@@ -1,15 +1,36 @@
 package mmcoe.team;
 
+import java.util.ArrayList;
+
 public class Billing {
 
-    private Team team;
-    private final int PLAYER_FEE = 1000;
+    public double calculateBill(ArrayList<Player> players) {
 
-    public Billing(Team team) {
-        this.team = team;
+        double total = 0;
+
+        for(Player p : players)
+            total += p.getCost();
+
+        return total;
     }
 
-    public double calculateBill() {
-        return team.getTotalPlayers() * PLAYER_FEE;
+    public void displayBill(ArrayList<Player> players) {
+
+        double total = 0;
+
+        System.out.println("PLAYER BILL");
+
+        for(Player p : players) {
+
+            System.out.printf("%-20s ₹%.2f\n",
+                    p.getPlayerName(),
+                    p.getCost());
+
+            total += p.getCost();
+        }
+
+
+        System.out.println("Total Billing : ₹" + total);
     }
+
 }

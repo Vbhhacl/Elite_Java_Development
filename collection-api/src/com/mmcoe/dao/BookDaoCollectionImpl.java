@@ -42,7 +42,17 @@ public class BookDaoCollectionImpl implements BookDao {
             books.remove(b);
             return true;
         }
-
         return false;
+    }
+
+    public List<Book> findByPrice(double min, double max) {
+        List<Book> matchingBooks = new Vector<Book>();
+        
+        for (Book b : books) {
+            if (b.getPrice() >= min && b.getPrice() <= max) {
+                matchingBooks.add(b);
+            }
+        }
+        return matchingBooks;
     }
 }

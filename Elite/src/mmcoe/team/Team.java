@@ -17,7 +17,11 @@ public class Team {
     public void addPlayer(Player p) {
         players.add(p);
     }
-
+    
+    public String getTeamName() {
+        return teamName;
+    }
+    
     public void searchPlayer(String name) {
 
         for (Player p : players) {

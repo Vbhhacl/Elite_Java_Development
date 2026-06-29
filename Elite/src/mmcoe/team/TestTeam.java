@@ -18,7 +18,8 @@ public class TestTeam {
             System.out.println("3.Search Player");
             System.out.println("4.Display Team");
             System.out.println("5.Total Players");
-            System.out.println("6.Exit");
+            System.out.println("6.Team Billing");
+            System.out.println("7.Exit");
 
             int ch = sc.nextInt();
 
@@ -91,8 +92,27 @@ public class TestTeam {
                     System.out.println("Total Players = " + team.getTotalPlayers());
 
                 break;
-
+                
             case 6:
+
+                if (teams.isEmpty()) {
+                    System.out.println("No Team Available");
+                    break;
+                }
+
+                for (Team team : teams) {
+
+                    Billing b = new Billing(team);
+
+                    System.out.println("--------------------------------");
+                    System.out.println("Team : " + team.getTeamName());
+                    System.out.println("Players : " + team.getTotalPlayers());
+                    System.out.println("Bill : ₹" + b.calculateBill());
+                }
+
+                break; 
+
+            case 7:
 
                 System.exit(0);
             }

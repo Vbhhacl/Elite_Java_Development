@@ -1,4 +1,5 @@
 import java.util.List;
+import java.util.Optional;
 
 import com.mmcoe.dao.BookDao;
 import com.mmcoe.dao.BookDaoCollectionImpl;
@@ -23,7 +24,7 @@ public class TestDao {
         }
 
         System.out.println("Find Book");
-        Book book = dao.find(102);
+        Optional<Book> book = dao.find(102);
 
         if (book != null)
             System.out.println(book);

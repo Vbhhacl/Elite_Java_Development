@@ -32,6 +32,10 @@ public class TestBookService {
 		} catch (BookNotFoundException e) {
 			e.printStackTrace();
 		}
-
+		
+		
+		//for (Book b: service.listOrderByTitle())
+		//	System.out.println(b);
+		service.listOrderByTitle().forEach(System.out::println);
 	}
 }

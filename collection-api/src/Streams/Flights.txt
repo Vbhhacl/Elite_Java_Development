@@ -1,0 +1,5 @@
+765,Jet,Kochi,Kolkata
+123,Indigo,Pune,Banglore
+346,Indigo,Gandhinagar,Mumbai
+567,Jet,Chennai,Bhopal
+289,Jet,Hydrabad,Lakhnow

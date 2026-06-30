@@ -1,6 +1,8 @@
 package service;
 
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import com.mmcoe.dao.BookDao;
 import com.mmcoe.pojo.Book;
@@ -9,7 +11,7 @@ public class BookServiceImpl implements BookService {
 	private BookDao dao;
 	
 	//public BookServiceImpl() {
-	//	dao  = new BookDaoCollectionImpl();
+	//dao  = new BookDaoCollectionImpl();
 	//}
 	
 	//dependency injection
@@ -22,12 +24,11 @@ public class BookServiceImpl implements BookService {
 		return dao.save(b);
 	}
 
+	
 	@Override
 	public Book find(int isbn) throws BookNotFoundException {
-		Book b = dao.find(isbn);
-		if (b==null) 
-			throw new BookNotFoundException("Book not found with ISBN: "+isbn);
-		return b;	
+	    return dao.find(isbn)
+	            .orElseThrow(() -> new BookNotFoundException("Book not found with ISBN: " + isbn));
 	}
 
 	@Override
@@ -48,4 +49,21 @@ public class BookServiceImpl implements BookService {
 		return dao.findByPrice(min, max);
 	}
 
-}
+	//@Override
+	//public List<Book> listOrderByTitle() {
+	//	Comparator<Book>titleComp=
+	//			(b1, b2) -> b1.getTitle().compareTo(b2.getTitle());
+	//	List<Book> list=dao.list();
+	//	list.sort(titleComp);
+	//	return list;
+		//return dao.list().stream().sorted((b1, b2) -> b1.getTitle().compareTo(b2.getTitle())).toList(); 
+		
+//}
+	@Override
+	public List<Book> listOrderByTitle() {
+	    return dao.list().stream()
+	            .sorted(Comparator.comparing(Book::getTitle))
+	            .collect(Collectors.toList()); 
+	            // Note: If you're on Java 16+, you can just use .toList() at the end instead!
+	}
+	}

@@ -3,7 +3,7 @@ import java.sql.Date;
 
 public class FileDemo {
 	public static void main(String[] args) throws Exception {
-		String path = "D:\\temp\\hello.txt";
+		String path = "C:\\Users\\ADMIN\\Downloads\\hello.txt";
 		File file = new File(path);
 		
 		if(file.exists()) {

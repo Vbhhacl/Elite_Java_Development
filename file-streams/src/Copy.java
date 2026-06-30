@@ -7,8 +7,8 @@ public class Copy {
 		FileInputStream inFile = null;
 		FileOutputStream outFile = null;
 		try {
-			inFile = new FileInputStream("D:/dump/python.exe");	//22 MB approx
-			outFile = new FileOutputStream("D:/dump/p2.exe");
+			inFile = new FileInputStream("C:\\Users\\ADMIN\\Downloads\\");	
+			outFile = new FileOutputStream("C:\\User\\ADMIN\\Downloads\\");
 			System.out.println("Copying file...");
 			int ch = 0;
 			long ms1 = System.currentTimeMillis();

@@ -1,0 +1,10 @@
+TeamId,TeamName,PlayerId,PlayerName,Age,Role,Cost
+101,India,1,Rohit Sharma,37,Batsman,1800000
+101,India,2,Virat Kohli,36,Batsman,2200000
+101,India,3,Jasprit Bumrah,31,Bowler,2000000
+102,Australia,4,Pat Cummins,32,Bowler,1900000
+102,Australia,5,Steve Smith,35,Batsman,2100000
+102,Australia,6,Travis Head,31,Batsman,1700000
+103,England,7,Joe Root,34,Batsman,2000000
+103,England,8,Ben Stokes,33,All Rounder,2400000
+103,England,9,Mark Wood,34,Bowler,1600000

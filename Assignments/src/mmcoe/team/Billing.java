@@ -6,31 +6,24 @@ public class Billing {
 
     public double calculateBill(ArrayList<Player> players) {
 
-        double total = 0;
-
-        for(Player p : players)
-            total += p.getCost();
-
-        return total;
+        return players.stream()
+                .mapToDouble(Player::getCost)
+                .sum();
     }
 
     public void displayBill(ArrayList<Player> players) {
 
-        double total = 0;
-
         System.out.println("PLAYER BILL");
 
-        for(Player p : players) {
+        players.forEach(p ->
+                System.out.printf("%-20s ₹%.2f%n",
+                        p.getPlayerName(),
+                        p.getCost()));
 
-            System.out.printf("%-20s ₹%.2f\n",
-                    p.getPlayerName(),
-                    p.getCost());
-
-            total += p.getCost();
-        }
-
+        double total = players.stream()
+                .mapToDouble(Player::getCost)
+                .sum();
 
         System.out.println("Total Billing : ₹" + total);
     }
-
 }

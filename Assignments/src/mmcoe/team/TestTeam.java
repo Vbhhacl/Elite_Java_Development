@@ -21,6 +21,15 @@ public class TestTeam {
             System.out.println("6. Display All Teams");
             System.out.println("7. Total Teams");
             System.out.println("8. Exit");
+            System.out.println("9. Load Teams From CSV");
+            System.out.println("10. Search Team Name");
+            System.out.println("11. Search Player");
+            System.out.println("12. Search Role");
+            System.out.println("13. Search Cost Range");
+            System.out.println("14. Search Age Range");
+            System.out.println("15. Highest Cost Player");
+            System.out.println("16. Display Sorted Players");
+            System.out.println("17. Average Billing");
             System.out.print("Enter Choice : ");
 
             int ch = sc.nextInt();
@@ -191,6 +200,98 @@ public class TestTeam {
                 System.out.println("Thank You");
                 sc.close();
                 System.exit(0);
+                
+            case 9:
+
+            	manager = CSVLoader.load("src/mmcoe/team/teams.csv");
+
+                System.out.println("Teams Loaded Successfully.");
+
+                break;
+                
+            case 10:
+
+                sc.nextLine();
+
+                System.out.print("Enter Team Name : ");
+
+                String teamName = sc.nextLine();
+
+                manager.searchTeamByName(teamName);
+
+                break;
+                
+            case 11:
+
+                sc.nextLine();
+
+                System.out.print("Enter Player Name : ");
+
+                String pname = sc.nextLine();
+
+                manager.searchPlayer(pname);
+
+                break;
+                
+                
+            case 12:
+
+                sc.nextLine();
+
+                System.out.print("Enter Role : ");
+
+                String role = sc.nextLine();
+
+                manager.searchRole(role);
+
+                break;
+                
+            case 13:
+
+                System.out.print("Minimum Cost : ");
+
+                double min = sc.nextDouble();
+
+                System.out.print("Maximum Cost : ");
+
+                double max = sc.nextDouble();
+
+                manager.searchCostRange(min,max);
+
+                break;
+                
+            case 14:
+
+                System.out.print("Minimum Age : ");
+
+                int minAge = sc.nextInt();
+
+                System.out.print("Maximum Age : ");
+
+                int maxAge = sc.nextInt();
+
+                manager.searchAgeRange(minAge,maxAge);
+
+                break;
+                
+            case 15:
+
+                manager.highestCostPlayer();
+
+                break;
+                
+                
+            case 16:
+
+                manager.displaySortedPlayers();
+
+                break;
+                
+            case 17:
+
+                manager.averageCost();
+
+                break;    
 
             default:
 
